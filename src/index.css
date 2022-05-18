@@ -11,3 +11,218 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.errorpage {
+  text-align: center;
+  background-color: white;
+}
+
+.postImage {
+  height: 325px;
+  width: 325px;
+  object-fit: cover;
+}
+
+.postInImage {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: cover;
+}
+
+#sameNewsLbl {
+  font-weight: bold;
+  font-size: 24px;
+  margin-left: 2.5%;
+}
+
+@media screen and (min-width: 400px) {
+  .mainMenu {
+    background-color: white;
+    position: relative;
+    padding: 30px;
+  }
+
+  .menuLink {
+    text-decoration: none;
+    padding: 10px;
+  }
+
+  .mainMenu nav {
+    min-height: 25px;
+    float: left;
+    min-width: 300px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .mainMenu {
+    background-color: white;
+    position: relative;
+    padding: 20px;
+  }
+
+  .menuLink {
+    text-decoration: none;
+    padding: 10px;
+  }
+
+  .mainMenu nav {
+    min-height: 25px;
+    float: left;
+    min-width: 300px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .mainMenu {
+    padding: 30px;
+  }
+}
+
+.sortBtn {
+  margin-right: 2.5%;
+  margin-top: 2%;
+  background-color: #00D4F5;
+  padding: 5px;
+  display: inline;
+  border: #00D4F5;
+}
+
+.sortBtnText {
+  display: inline;
+  margin-left: 1%;
+  background-color: #00D4F5;
+  border: #00D4F5;
+}
+
+.searchSmth {
+  display: block;
+  padding: 10px 0 0 40px;
+  border: #00D4F5;
+}
+
+#sortbuttons {
+  padding-left: 40px;
+}
+
+@media screen and (min-width: 1200px) {
+  .hrSplitPost {
+    margin-right: 55%;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .hrSplitPost {
+    margin-right: 30%;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .hrSplitPost {
+    margin-right: 0%;
+  }
+}
+
+
+
+.myBookmarks {
+  font-weight: bold;
+  font-size: 24px;
+  margin-left: 2.5%;
+}
+
+.pageBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2%;
+  margin-top: 1%;
+}
+
+.pageBarBtn {
+  background-color: #00D4F5;
+  margin: 2px;
+  color: white;
+  border: #00D4F5;
+}
+
+.pageBarBtnCurrent {
+  background-color: #002E36;
+  margin: 2px;
+  font-weight: bold;
+  color: white;
+  border: #002E36;
+}
+
+.pageBarBtnFsCurrent {
+  background-color: #002E36;
+  margin: 2px;
+  font-weight: bold;
+  color: white;
+  border: #002E36;
+}
+
+.pageBarBtnFs {
+  background-color: #002E36;
+  margin: 2px;
+  color: white;
+  border: #002E36;
+}
+
+
+
+.menuLink:hover {
+  background-color: rgba(19, 16, 16, 0.1);
+}
+
+
+.newsList {
+  list-style: none;
+}
+
+#newsTitle {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+#headerNews {
+  color: #002E36;
+  position: relative;
+  text-decoration: none;
+}
+
+#postSummary {
+  padding-top: 2%;
+  padding-bottom: 2%;
+  max-width: 500px;
+  font-size: 18px;
+  margin-left: 10px;
+  font-style: italic;
+}
+
+.bookmarkBtn {
+  margin-left: 2.5%;
+  margin-top: 2.5%;
+  padding: 5px;
+  background-color: #00D4F5;
+  border: #00D4F5;
+  color: white;
+}
+
+
+.about {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  background-color: #00D4F5;
+  color: white;
+}
+
+#listAbout {
+  padding: 20%;
+}
