@@ -97,6 +97,7 @@ export function News() {
     }
     else if (pageNumber - 2 <= 1) {
       setPageArray([2, 3, 4, 5, 6]);
+
     }
     else {
       setPageArray([pageNumber - 2, pageNumber - 1, pageNumber, pageNumber + 1, pageNumber + 2]);
@@ -104,73 +105,68 @@ export function News() {
   }
 
   useEffect(() => {
-    fetchForPages();
+    fetchForPages()
     isFiltered ? fetchWithFilter() : fetchIt();
   }, [textFilter, sort, pageNumber])
 
   function fetchIt() {
-    {
-      fetch("https://api.spaceflightnewsapi.net/v3/articles?_limit=5&_start=" + (((pageNumber - 1) * 5)))
-        .then(res => res.json())
-        .then(
-          (result) => {
-            setItems(result);
-          },
-          // Примечание: важно обрабатывать ошибки именно здесь, а не в блоке catch(),
-          // чтобы не перехватывать исключения из ошибок в самих компонентах.
-          (error) => {
-            setIsLoaded(true);
-            setError(error);
-          }
-        )
-    }
+    fetch("https://api.spaceflightnewsapi.net/v3/articles?_limit=5&_start=" + ((pageNumber - 1) * 5))
+      .then(res => res.json())
+      .then(
+        (result) => {
+          setItems(result);
+        },
+        // Примечание: важно обрабатывать ошибки именно здесь, а не в блоке catch(),
+        // чтобы не перехватывать исключения из ошибок в самих компонентах.
+        (error) => {
+          setIsLoaded(true);
+          setError(error);
+        }
+      )
   }
 
   function fetchForPages() {
-    {
-      fetch("https://api.spaceflightnewsapi.net/v3/articles?_limit=100&" + textFilter)
-        .then(res => res.json())
-        .then(
-          (result) => {
-            setIsLoaded(true);
-            countPages(result.length)
-          },
-          // Примечание: важно обрабатывать ошибки именно здесь, а не в блоке catch(),
-          // чтобы не перехватывать исключения из ошибок в самих компонентах.
-          (error) => {
-            setIsLoaded(true);
-            setError(error);
-          }
-        )
-    }
+    fetch("https://api.spaceflightnewsapi.net/v3/articles/count?" + textFilter)
+      .then(res => res.json())
+      .then(
+        (result) => {
+          setIsLoaded(true);
+          countPages(JSON.parse(result));
+        },
+        // Примечание: важно обрабатывать ошибки именно здесь, а не в блоке catch(),
+        // чтобы не перехватывать исключения из ошибок в самих компонентах.
+        (error) => {
+          setIsLoaded(true);
+          setError(error);
+        }
+      )
   }
 
   function fetchWithFilter() {
-    {
-      fetch("https://api.spaceflightnewsapi.net/v3/articles?_limit=5&_start=" + (((pageNumber - 1) * 5)) + "&" + textFilter + "&" + sort)
-
-        .then(res => res.json())
-        .then(
-          (result) => {
-            setItems(result);
-          },
-          // Примечание: важно обрабатывать ошибки именно здесь, а не в блоке catch(),
-          // чтобы не перехватывать исключения из ошибок в самих компонентах.
-          (error) => {
-            setIsLoaded(true);
-            setError(error);
-          }
-        )
-    }
+    fetch("https://api.spaceflightnewsapi.net/v3/articles?_limit=5&_start=" + (((pageNumber - 1) * 5)) + "&" + textFilter + "&" + sort)
+      .then(res => res.json())
+      .then(
+        (result) => {
+          setItems(result);
+        },
+        // Примечание: важно обрабатывать ошибки именно здесь, а не в блоке catch(),
+        // чтобы не перехватывать исключения из ошибок в самих компонентах.
+        (error) => {
+          setIsLoaded(true);
+          setError(error);
+        }
+      )
   }
   function handleOnClickText(value) {
     setFilter(true);
     setTextFilter(value);
+    setPageNumber(1)
   }
 
   function handleOnClickSort(value) {
     setFilter(true);
     setSort(value);
+    setPageNumber(1)
   }
 
   function handlePageClick(value) {
@@ -291,22 +287,20 @@ export function New() {
       }
       else setBookmarked(false);
     }
-    {
-      fetch("https://api.spaceflightnewsapi.net/v3/articles?" + query)
-        .then(ress => ress.json())
-        .then(
-          (results) => {
-            setIsLoaded(true);
-            setOutputItems(results);
-          },
-          // Примечание: важно обрабатывать ошибки именно здесь, а не в блоке catch(),
-          // чтобы не перехватывать исключения из ошибок в самих компонентах.
-          (error) => {
-            setIsLoaded(true);
-            setError(error);
-          }
-        );
-    }
+    fetch("https://api.spaceflightnewsapi.net/v3/articles?" + query)
+      .then(ress => ress.json())
+      .then(
+        (results) => {
+          setIsLoaded(true);
+          setOutputItems(results);
+        },
+        // Примечание: важно обрабатывать ошибки именно здесь, а не в блоке catch(),
+        // чтобы не перехватывать исключения из ошибок в самих компонентах.
+        (error) => {
+          setIsLoaded(true);
+          setError(error);
+        }
+      );
   }
 
   if (error) {
